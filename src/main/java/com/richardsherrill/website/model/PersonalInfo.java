@@ -25,7 +25,7 @@ public class PersonalInfo {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -33,7 +33,7 @@ public class PersonalInfo {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(final String firstName) {
         this.firstName = firstName;
     }
 
@@ -41,7 +41,7 @@ public class PersonalInfo {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(final String lastName) {
         this.lastName = lastName;
     }
 
@@ -49,7 +49,7 @@ public class PersonalInfo {
         return emailAddress;
     }
 
-    public void setEmailAddress(String emailAddress) {
+    public void setEmailAddress(final String emailAddress) {
         this.emailAddress = emailAddress;
     }
 
@@ -57,7 +57,7 @@ public class PersonalInfo {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(final String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -65,7 +65,7 @@ public class PersonalInfo {
         return city;
     }
 
-    public void setCity(String city) {
+    public void setCity(final String city) {
         this.city = city;
     }
 
@@ -73,7 +73,7 @@ public class PersonalInfo {
         return state;
     }
 
-    public void setState(String state) {
+    public void setState(final String state) {
         this.state = state;
     }
 
@@ -81,7 +81,7 @@ public class PersonalInfo {
         return nicknames;
     }
 
-    public void setNicknames(List<String> nicknames) {
+    public void setNicknames(final List<String> nicknames) {
         this.nicknames = nicknames;
     }
 

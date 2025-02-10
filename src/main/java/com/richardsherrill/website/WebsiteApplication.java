@@ -29,7 +29,7 @@ public class WebsiteApplication {
 		};
 	}*/
 
-	@Bean
+	/*@Bean
 	public CommandLineRunner commandLineRunner(MainRepository repository) {
 		return args -> {
 			PersonalInfo info = new PersonalInfo();
@@ -46,5 +46,5 @@ public class WebsiteApplication {
 				System.out.println(personalInfo.toString());
 			});
 		};
-	}
+	}*/
 }
