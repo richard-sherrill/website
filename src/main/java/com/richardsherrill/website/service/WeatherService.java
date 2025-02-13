@@ -1,6 +1,7 @@
 package com.richardsherrill.website.service;
 
-import com.richardsherrill.website.model.Weather;
+import com.richardsherrill.website.model.weather.CurrentWeather;
+import com.richardsherrill.website.model.weather.ForecastDay;
 
 import java.util.List;
 
@@ -14,14 +15,14 @@ public interface WeatherService {
      * @param query Zip/Post Code, City, or IP Address
      * @return the Weather object
      */
-    Weather retrieveCurrentWeather(String query);
+    CurrentWeather retrieveCurrentWeather(String query);
 
     /**
      * Retrieve the N day forecast
      * @param query Zip/Post Code, City, or IP Address
      * @param days the number of forecast days (max 14 days)
-     * @return a list of Weather objects
+     * @return a list of Forecast objects
      */
-    List<Weather> retrieveForecast(String query, int days);
+    List<ForecastDay> retrieveForecast(String query, int days);
 
 }

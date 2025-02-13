@@ -1,8 +1,10 @@
-package com.richardsherrill.website.model;
+package com.richardsherrill.website.model.weather;
 
-public class Weather {
+/**
+ * Model class for the current weather
+ */
+public class CurrentWeather {
 
-    private String date;
     private String city;
     private String state;
     private String country;
@@ -13,13 +15,6 @@ public class Weather {
     private String feelsLikeF;
     private String feelsLikeC;
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(final String date) {
-        this.date = date;
-    }
 
     public String getCity() {
         return city;
@@ -96,8 +91,7 @@ public class Weather {
     @Override
     public String toString() {
         return "Weather{" +
-                "date='" + date + '\'' +
-                ", city='" + city + '\'' +
+                "city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", country='" + country + '\'' +
                 ", timezone='" + timezone + '\'' +
