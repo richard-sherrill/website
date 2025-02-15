@@ -1,8 +1,5 @@
 package com.richardsherrill.website.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-
 import java.util.Date;
 
 public class Education {

@@ -1,9 +1,6 @@
 package com.richardsherrill.website.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.List;
 
@@ -22,8 +19,9 @@ public class Person {
     private String phoneNumber;
     private String city;
     private String state;
-    private List<String> nicknames;
-    private Resume resume;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "resume_id", referencedColumnName = "id")
+    private List<Resume> resumeList;
 
     public Long getId() {
         return id;
@@ -81,20 +79,12 @@ public class Person {
         this.state = state;
     }
 
-    public List<String> getNicknames() {
-        return nicknames;
+    public List<Resume> getResumeList() {
+        return resumeList;
     }
 
-    public void setNicknames(final List<String> nicknames) {
-        this.nicknames = nicknames;
-    }
-
-    public Resume getResume() {
-        return resume;
-    }
-
-    public void setResume(final Resume resume) {
-        this.resume = resume;
+    public void setResumeList(final List<Resume> resumeList) {
+        this.resumeList = resumeList;
     }
 
     @Override
@@ -107,8 +97,7 @@ public class Person {
                 ", phoneNumber=" + phoneNumber +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
-                ", nicknames=" + nicknames +
-                ", resume=" + resume +
+                ", resumeList=" + resumeList +
                 '}';
     }
 }
