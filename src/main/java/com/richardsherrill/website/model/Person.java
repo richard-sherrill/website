@@ -7,8 +7,11 @@ import jakarta.persistence.Id;
 
 import java.util.List;
 
+/**
+ * The Person model object
+ */
 @Entity
-public class PersonalInfo {
+public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,6 +23,7 @@ public class PersonalInfo {
     private String city;
     private String state;
     private List<String> nicknames;
+    private Resume resume;
 
     public Long getId() {
         return id;
@@ -85,9 +89,17 @@ public class PersonalInfo {
         this.nicknames = nicknames;
     }
 
+    public Resume getResume() {
+        return resume;
+    }
+
+    public void setResume(final Resume resume) {
+        this.resume = resume;
+    }
+
     @Override
     public String toString() {
-        return "PersonalInfo{" +
+        return "Person{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
@@ -96,6 +108,7 @@ public class PersonalInfo {
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", nicknames=" + nicknames +
+                ", resume=" + resume +
                 '}';
     }
 }

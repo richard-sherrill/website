@@ -17,6 +17,11 @@ public class ResourceReader {
 
     /**
      * Takes a resource file and converts the contents to a string
+     * Example usage:
+             /*@Value("classpath:current_weather.json")
+             Resource currentWeatherResource;
+             String testJson = ResourceReader.asString(currentWeatherResource);*
+     *
      * @param resource an instantiated resource object
      * @return the String representation of the resource file
      */

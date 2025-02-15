@@ -20,20 +20,18 @@ import java.util.List;
 
 @Service
 public class WeatherServiceImpl implements WeatherService {
-    @Value("${weatherapi.key}")
-    private String key;
 
-    /*@Value("classpath:forecast.json")
-    Resource forecastResource;
-    @Value("classpath:current_weather.json")
-    Resource currentWeatherResource;
-    private String testJson;*/
-    @Autowired
-    @Qualifier("weatherClient")
-    private WebClient webClient;
+    private final String key;
+
+    private final WebClient webClient;
+
+    public WeatherServiceImpl(@Value("${weatherapi.key}") final String key, @Qualifier("weatherClient") final WebClient webClient) {
+        this.key = key;
+        this.webClient = webClient;
+    }
 
     @Override
-    public CurrentWeather retrieveCurrentWeather(String query) {
+    public CurrentWeather retrieveCurrentWeather(final String query) {
         System.out.println("Retrieving Current Weather");
         final String response = webClient.get()
                 .uri(uriBuilder -> uriBuilder
@@ -46,7 +44,6 @@ public class WeatherServiceImpl implements WeatherService {
                 .block();
 
         try {
-            //testJson = ResourceReader.asString(currentWeatherResource); // **TESTING ONLY**
             final ObjectMapper mapper = new ObjectMapper();
             final SimpleModule simpleModule = new SimpleModule();
             simpleModule.addDeserializer(CurrentWeather.class, new CurrentWeatherDeserializer());
@@ -62,7 +59,7 @@ public class WeatherServiceImpl implements WeatherService {
     }
 
     @Override
-    public List<ForecastDay> retrieveForecast(String query, int days) {
+    public List<ForecastDay> retrieveForecast(final String query, final int days) {
         System.out.println("Retrieving Forecast");
         final String response = webClient.get()
                 .uri(uriBuilder -> uriBuilder
@@ -76,7 +73,6 @@ public class WeatherServiceImpl implements WeatherService {
                 .block();
 
         try {
-            //testJson = ResourceReader.asString(forecastResource); // **TESTING ONLY**
             final ObjectMapper mapper = new ObjectMapper();
             final SimpleModule simpleModule = new SimpleModule();
             simpleModule.addDeserializer(Forecast.class, new ForecastDeserializer());

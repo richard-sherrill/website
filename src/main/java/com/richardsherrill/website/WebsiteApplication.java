@@ -1,14 +1,7 @@
 package com.richardsherrill.website;
 
-import com.richardsherrill.website.model.PersonalInfo;
-import com.richardsherrill.website.repository.MainRepository;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-
-import java.util.Arrays;
 
 @SpringBootApplication
 public class WebsiteApplication {
@@ -32,7 +25,7 @@ public class WebsiteApplication {
 	/*@Bean
 	public CommandLineRunner commandLineRunner(MainRepository repository) {
 		return args -> {
-			PersonalInfo info = new PersonalInfo();
+			Person info = new Person();
 			info.setCity("Chicago");
 			info.setState("IL");
 			info.setEmailAddress("richardzsherrill@gmail.com");
@@ -42,8 +35,8 @@ public class WebsiteApplication {
 			info.setNicknames(Arrays.asList("Rich", "Richie", "Dick", "White Chocolate"));
 			//repository.save(info);
 
-			repository.findAll().forEach(personalInfo -> {
-				System.out.println(personalInfo.toString());
+			repository.findAll().forEach(person -> {
+				System.out.println(person.toString());
 			});
 		};
 	}*/
