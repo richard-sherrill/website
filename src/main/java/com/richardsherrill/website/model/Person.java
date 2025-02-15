@@ -1,14 +1,14 @@
 package com.richardsherrill.website.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.List;
 
+/**
+ * The Person model object
+ */
 @Entity
-public class PersonalInfo {
+public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,7 +19,9 @@ public class PersonalInfo {
     private String phoneNumber;
     private String city;
     private String state;
-    private List<String> nicknames;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "resume_id", referencedColumnName = "id")
+    private List<Resume> resumeList;
 
     public Long getId() {
         return id;
@@ -77,17 +79,17 @@ public class PersonalInfo {
         this.state = state;
     }
 
-    public List<String> getNicknames() {
-        return nicknames;
+    public List<Resume> getResumeList() {
+        return resumeList;
     }
 
-    public void setNicknames(final List<String> nicknames) {
-        this.nicknames = nicknames;
+    public void setResumeList(final List<Resume> resumeList) {
+        this.resumeList = resumeList;
     }
 
     @Override
     public String toString() {
-        return "PersonalInfo{" +
+        return "Person{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
@@ -95,7 +97,7 @@ public class PersonalInfo {
                 ", phoneNumber=" + phoneNumber +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
-                ", nicknames=" + nicknames +
+                ", resumeList=" + resumeList +
                 '}';
     }
 }

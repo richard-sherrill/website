@@ -1,13 +1,13 @@
 package com.richardsherrill.website.service;
 
-import com.richardsherrill.website.model.PersonalInfo;
+import com.richardsherrill.website.model.Person;
 
 public interface PersonService {
 
     /**
      * Retrieve personal information
-     * @return the PersonalInfo object from the repository or an empty PersonalInfo object if none found
+     * @return the Person object from the repository or an empty Person object if none found
      */
-    PersonalInfo retrievePersonalInfo(Long id);
+    Person retrievePerson(Long id);
 
 }
