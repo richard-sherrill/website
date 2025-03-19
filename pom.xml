@@ -11,6 +11,7 @@
 	<groupId>com.richardsherrill</groupId>
 	<artifactId>website</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<!--	todo: establish base version once MVP is ready -->
 	<name>website</name>
 	<description>Website demonstrating different software dev skills</description>
 	<url/>
@@ -43,6 +44,15 @@
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-maven-plugin</artifactId>
+			<version>10.20.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-database-postgresql</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

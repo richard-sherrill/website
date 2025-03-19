@@ -18,4 +18,8 @@ public class PersonServiceImpl implements PersonService {
     public Person retrievePerson(final Long id) {
         return personRepository.findById(id).isPresent() ? personRepository.findById(id).get() : new Person();
     }
+
+    public void savePerson(final Person person) {
+        personRepository.save(person);
+    }
 }
