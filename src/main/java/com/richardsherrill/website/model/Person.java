@@ -19,8 +19,7 @@ public class Person {
     private String phoneNumber;
     private String city;
     private String state;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "resume_id", referencedColumnName = "id")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "person")
     private List<Resume> resumeList;
 
     public Long getId() {

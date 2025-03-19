@@ -1,7 +1,6 @@
 package com.richardsherrill.website.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -9,7 +8,9 @@ import java.util.Date;
 public class Job {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private Long jobId;
     private String companyName;
     private String companyCity;
     private String companyState;
@@ -18,7 +19,24 @@ public class Job {
     private Date dateEnded;
     private String description;
     private String technology;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Resume resume;
 
+    public Resume getResume() {
+        return resume;
+    }
+
+    public void setResume(Resume resume) {
+        this.resume = resume;
+    }
+
+    public Long getJobId() {
+        return jobId;
+    }
+
+    public void setJobId(final Long jobId) {
+        this.jobId = jobId;
+    }
 
     public String getCompanyName() {
         return companyName;
@@ -96,7 +114,9 @@ public class Job {
     @Override
     public String toString() {
         return "Job{" +
-                "companyName='" + companyName + '\'' +
+                "id=" + id +
+                ", jobId=" + jobId +
+                ", companyName='" + companyName + '\'' +
                 ", companyCity='" + companyCity + '\'' +
                 ", companyState='" + companyState + '\'' +
                 ", title='" + title + '\'' +
@@ -104,7 +124,6 @@ public class Job {
                 ", dateEnded=" + dateEnded +
                 ", description='" + description + '\'' +
                 ", technology='" + technology + '\'' +
-                ", id=" + id +
                 '}';
     }
 }
